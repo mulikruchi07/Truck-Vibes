@@ -1,0 +1,414 @@
+:root{
+  --font-display: "Teko", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+  --edge: clamp(16px, 3vw, 48px);
+  --glass-bg: rgba(30, 20, 14, 0.38);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --accent: #ff7a2f;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;         /* no scroll, ever */
+  overscroll-behavior: none;
+  background: #1a0f0a;
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button{
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+}
+
+a{ color: inherit; text-decoration: none; }
+
+/* ---------- Background ---------- */
+
+.bg{
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;   /* desktop: centered */
+  z-index: 0;
+}
+
+.bg-scrim{
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 62%, rgba(0,0,0,.55) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Tablet: image shifts left of center */
+@media (max-width: 1024px){
+  .bg{ 
+    background-size: cover;
+    background-position: 100% 70%; }
+}
+
+/* Phone: shifts further left */
+@media (max-width: 640px){
+  .bg{ 
+    background-size: cover;
+    background-position: 100% 50%; }
+}
+
+/* ---------- App shell ---------- */
+
+.app{
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--edge) var(--edge) 0;
+}
+
+.platforms{
+  display: flex;
+  gap: clamp(14px, 2.4vw, 28px);
+}
+
+.platform-link{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: #fff;
+  opacity: .95;
+  transition: opacity .15s ease;
+}
+.platform-link:hover{ opacity: 1; }
+
+.platform-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-text{ display: inline; }
+.arrow{ opacity: .85; }
+
+.datetime{
+  text-align: right;
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.35;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  opacity: .95;
+}
+
+/* ---------- Hero / headline ---------- */
+
+.hero{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--edge);
+  min-height: 0;
+  transform: translateY(-130px);
+
+}
+
+.headline{
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #fff;
+  line-height: 0.45;
+  font-size: clamp(64px, 14vw, 250px);
+  letter-spacing: 0.2px;
+  text-shadow: 0 6px 30px rgba(0,0,0,.25);
+}
+
+/* ---------- Footer credits ---------- */
+
+.credits{
+  position: absolute;
+  left: var(--edge);
+  right: var(--edge);
+  bottom: clamp(18px, 3vw, 34px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+
+  z-index: 4;
+  pointer-events: none;
+}
+
+.credit-link{
+  pointer-events: auto;
+}
+
+.credit-link em{ font-style: italic; font-weight: 400; }
+.credit-link:hover{ color: #fff; }
+
+/* ---------- Player ---------- */
+
+.player{
+  position: absolute;
+  z-index: 5;
+
+  left: 50%;
+  bottom: clamp(70px, 9vh, 130px);
+  transform: translateX(-50%);
+
+  width: min(640px, 85vw);
+  height: clamp(80px, 9.5vw, 102px);
+
+  border-radius: clamp(53px, 6vw, 53px);
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+
+  display: flex;
+  align-items: center;
+
+  padding: clamp(8px, 1.2vw, 12px) clamp(14px, 2vw, 20px);
+  gap: clamp(10px, 1.6vw, 18px);
+}
+
+.player::before{
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+}
+
+/* rotating disc */
+.disc{
+  flex: none;
+  width: clamp(50px, 7vw, 68px);
+  height: clamp(50px, 7vw, 68px);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.disc-spin{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #000 0 22%, #171717 22% 30%, #0c0c0c 30% 100%),
+    repeating-radial-gradient(circle at center, rgba(255,255,255,.05) 0 2px, transparent 2px 6px);
+  position: relative;
+  animation: spin 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.disc-spin.playing{ animation-play-state: running; }
+
+.disc-ring{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.08);
+}
+
+.disc-center{
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 34%;
+  height: 34%;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px rgba(0,0,0,.5) inset;
+}
+.disc-center::after{
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 26%;
+  height: 26%;
+  background: #1a0f0a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
+
+/* track info */
+.track-info{
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.track-title-wrap, .track-artist-wrap{
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.track-title{
+  font-weight: 600;
+  font-size: clamp(11.5px, 1.5vw, 16px);
+  color: #fff;
+  display: inline-block;
+}
+
+.track-artist-wrap{
+  position: relative;
+}
+
+.track-artist{
+  font-weight: 400;
+  font-size: clamp(10.5px, 1.2vw, 13px);
+  line-height: 1;
+  color: rgba(255,255,255,.7);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* marquee state applied via JS when text overflows */
+.track-artist-wrap.marquee .track-artist{
+  animation: marquee 9s linear infinite;
+  padding-right: 40px;
+}
+
+@keyframes marquee{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(calc(-1 * var(--overflow, 100px))); }
+}
+
+.seek-row{
+  width: 100%;
+  padding-top: 2px;
+}
+
+.seek-bar{
+  position: relative;
+  padding-top: 5px;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.25);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.seek-fill{
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.seek-handle{
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 4px rgba(0,0,0,.4);
+}
+
+.time-row{
+  display: flex;
+  gap: 4px;
+  font-size: clamp(9.5px, .95vw, 11.5px);
+  line-height: 1;
+  color: rgba(255,255,255,.65);
+  font-weight: 500;
+  margin-top: 7px;
+}
+
+/* controls */
+.controls{
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 1vw, 10px);
+}
+
+.ctrl-btn{
+  width: clamp(30px, 4vw, 38px);
+  height: clamp(30px, 4vw, 38px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  transition: background .15s ease, transform .1s ease;
+}
+.ctrl-btn:hover{ background: rgba(255,255,255,.12); }
+.ctrl-btn:active{ transform: scale(.92); }
+
+.play-btn{
+  width: clamp(38px, 5vw, 48px);
+  height: clamp(38px, 5vw, 48px);
+  background: #fff;
+  color: #1a0f0a;
+}
+.play-btn:hover{ background: #fff; opacity: .9; }
+
+/* ---------- Phone: icon-only platform links ---------- */
+
+@media (max-width: 640px){
+  .platform-text, .arrow{ display: none; }
+  .platform-link{ gap: 0; }
+  .platforms{ gap: 14px; }
+  .headline{ line-height: 0.95; }
+}
+
+/* ---------- Small height screens (landscape phones) ---------- */
+
+@media (max-height: 480px){
+  .headline{ font-size: clamp(40px, 10vh, 90px); }
+  .player{ height: clamp(58px, 14vh, 76px); }
+  .topbar{ padding-top: clamp(10px, 3vh, 20px); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .disc-spin{ animation: none; }
+  .track-artist-wrap.marquee .track-artist{ animation: none; }
+}
