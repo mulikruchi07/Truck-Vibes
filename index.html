@@ -1,113 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
-<title>Truck Vibes</title>
-<meta name="theme-color" content="#1a0f0a">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <title>Truck Vibes</title>
+  <meta name="theme-color" content="#1a0f0a">
 
-<!-- Replace with your own logo -->
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <!-- Replace with your own logo -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
-<!-- Fonts: Teko for the Devanagari headline, Montserrat for everything else -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts: Teko for the Devanagari headline, Montserrat for everything else -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Teko:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Full-bleed background image, repositioned per breakpoint via CSS -->
-<div class="bg"></div>
-<div class="bg-scrim"></div>
+  <!-- Full-bleed background image, repositioned per breakpoint via CSS -->
+  <div class="bg"></div>
+  <div class="bg-scrim"></div>
 
-<div class="app">
+  <div class="app">
 
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="platforms">
-      <a class="platform-link" id="spotifyLink" href="https://open.spotify.com/playlist/0iT5gTODhpUFGSwqGZUpdG" target="_blank" rel="noopener">
-        <span class="platform-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.99-8.15-2.56-11.97-1.4a.94.94 0 1 1-.55-1.8c4.37-1.32 9.8-.68 13.5 1.6.44.27.58.85.31 1.29Zm.13-3.4C15.98 8.4 9.9 8.2 6.37 9.28a1.13 1.13 0 1 1-.66-2.16c4.05-1.23 10.8-1 14.98 1.46a1.13 1.13 0 0 1-1.19 1.92Z"/></svg>
-        </span>
-        <span class="platform-text">Spotify</span>
-        <svg class="arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 6h10.6L5.3 17.3l1.4 1.4L18 7.4V18h2V6H6Z"/></svg>
-      </a>
-      <a class="platform-link" id="youtubeLink" href="https://www.youtube.com/watch?v=uIYFObB-yv0&t=4988s" target="_blank" rel="noopener">
-        <span class="platform-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M23.5 6.19a3 3 0 0 0-2.11-2.13C19.47 3.5 12 3.5 12 3.5s-7.47 0-9.39.56A3 3 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3 3 0 0 0 2.11 2.13C4.53 20.5 12 20.5 12 20.5s7.47 0 9.39-.56a3 3 0 0 0 2.11-2.13A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/></svg>
-        </span>
-        <span class="platform-text">Youtube</span>
-        <svg class="arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 6h10.6L5.3 17.3l1.4 1.4L18 7.4V18h2V6H6Z"/></svg>
-      </a>
-    </div>
-
-    <div class="datetime">
-      <span id="dateNow"></span>
-      <span id="timeNow"></span>
-    </div>
-  </header>
-
-  <!-- Center headline -->
-  <main class="hero">
-    <h1 class="headline">ट्रक वाइब्स</h1>
-  </main>
-
-  <!-- Footer credits -->
-  <footer class="credits">
-    <a class="credit-link" href="https://www.linkedin.com/in/ruchi-mulik-816a2b295/" target="_blank" rel="noopener">Developed by <em>Developer</em></a>
-    <a class="credit-link right" href="https://in.linkedin.com/in/pranav-phanse-8b4bbb318" target="_blank" rel="noopener">Designed by <em>Designer</em></a>
-  </footer>
-
-  <!-- Player -->
-  <div class="player" id="player">
-    <button class="disc" id="discBtn" aria-label="Play or pause">
-      <span class="disc-spin" id="discSpin">
-        <span class="disc-ring"></span>
-        <span class="disc-center"></span>
-      </span>
-    </button>
-
-    <div class="track-info">
-      <div class="track-title-wrap">
-        <span class="track-title" id="trackTitle">Loading…</span>
-      </div>
-      <div class="track-artist-wrap">
-        <span class="track-artist" id="trackArtist">—</span>
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="platforms">
+        <a class="platform-link" id="spotifyLink" href="https://open.spotify.com/playlist/0iT5gTODhpUFGSwqGZUpdG"
+          target="_blank" rel="noopener">
+          <span class="platform-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor"
+                d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.99-8.15-2.56-11.97-1.4a.94.94 0 1 1-.55-1.8c4.37-1.32 9.8-.68 13.5 1.6.44.27.58.85.31 1.29Zm.13-3.4C15.98 8.4 9.9 8.2 6.37 9.28a1.13 1.13 0 1 1-.66-2.16c4.05-1.23 10.8-1 14.98 1.46a1.13 1.13 0 0 1-1.19 1.92Z" />
+            </svg>
+          </span>
+          <span class="platform-text">Spotify</span>
+          <svg class="arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+            <path fill="currentColor" d="M6 6h10.6L5.3 17.3l1.4 1.4L18 7.4V18h2V6H6Z" />
+          </svg>
+        </a>
+        <a class="platform-link" id="youtubeLink" href="https://www.youtube.com/watch?v=uIYFObB-yv0&t=4988s"
+          target="_blank" rel="noopener">
+          <span class="platform-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor"
+                d="M23.5 6.19a3 3 0 0 0-2.11-2.13C19.47 3.5 12 3.5 12 3.5s-7.47 0-9.39.56A3 3 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3 3 0 0 0 2.11 2.13C4.53 20.5 12 20.5 12 20.5s7.47 0 9.39-.56a3 3 0 0 0 2.11-2.13A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z" />
+            </svg>
+          </span>
+          <span class="platform-text">Youtube</span>
+          <svg class="arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+            <path fill="currentColor" d="M6 6h10.6L5.3 17.3l1.4 1.4L18 7.4V18h2V6H6Z" />
+          </svg>
+        </a>
       </div>
 
-      <div class="seek-row">
-        <div class="seek-bar" id="seekBar">
-          <div class="seek-fill" id="seekFill"></div>
-          <div class="seek-handle" id="seekHandle"></div>
+      <div class="datetime">
+        <span id="dateNow"></span>
+        <span id="timeNow"></span>
+      </div>
+    </header>
+
+    <!-- Center headline -->
+    <main class="hero">
+      <h1 class="headline">
+        <span>ट्रक</span>
+        <span>वाइब्स</span>
+      </h1>
+    </main>
+
+    <!-- Footer credits -->
+    <footer class="credits">
+      <a class="credit-link" href="https://www.linkedin.com/in/ruchi-mulik-816a2b295/" target="_blank"
+        rel="noopener">Developed by <em>Developer</em></a>
+      <a class="credit-link right" href="https://in.linkedin.com/in/pranav-phanse-8b4bbb318" target="_blank"
+        rel="noopener">Designed by <em>Designer</em></a>
+    </footer>
+
+    <!-- Player -->
+    <div class="player" id="player">
+      <button class="disc" id="discBtn" aria-label="Play or pause">
+        <span class="disc-spin" id="discSpin">
+          <span class="disc-ring"></span>
+          <span class="disc-center"></span>
+        </span>
+      </button>
+
+      <div class="track-info">
+        <div class="track-title-wrap">
+          <span class="track-title" id="trackTitle">Loading…</span>
+        </div>
+        <div class="track-artist-wrap">
+          <span class="track-artist" id="trackArtist">—</span>
+        </div>
+
+        <div class="seek-row">
+          <div class="seek-bar" id="seekBar">
+            <div class="seek-fill" id="seekFill"></div>
+            <div class="seek-handle" id="seekHandle"></div>
+          </div>
+        </div>
+        <div class="time-row">
+          <span id="timeCurrent">0:00</span>
+          <span class="time-sep">/</span>
+          <span id="timeTotal">0:00</span>
         </div>
       </div>
-      <div class="time-row">
-        <span id="timeCurrent">0:00</span>
-        <span class="time-sep">/</span>
-        <span id="timeTotal">0:00</span>
+
+      <div class="controls">
+        <button class="ctrl-btn" id="prevBtn" aria-label="Previous song">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path fill="currentColor" d="M6 6h2v12H6V6Zm3.5 6 9-6v12l-9-6Z" />
+          </svg>
+        </button>
+        <button class="ctrl-btn play-btn" id="playBtn" aria-label="Play or pause">
+          <svg id="playIcon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M8 5v14l11-7L8 5Z" />
+          </svg>
+          <svg id="pauseIcon" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+            <path fill="currentColor" d="M6 5h4v14H6V5Zm8 0h4v14h-4V5Z" />
+          </svg>
+        </button>
+        <button class="ctrl-btn" id="nextBtn" aria-label="Next song">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path fill="currentColor" d="M16 6h2v12h-2V6Zm-2 6-9 6V6l9 6Z" />
+          </svg>
+        </button>
       </div>
     </div>
 
-    <div class="controls">
-      <button class="ctrl-btn" id="prevBtn" aria-label="Previous song">
-        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6 6h2v12H6V6Zm3.5 6 9-6v12l-9-6Z"/></svg>
-      </button>
-      <button class="ctrl-btn play-btn" id="playBtn" aria-label="Play or pause">
-        <svg id="playIcon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
-        <svg id="pauseIcon" viewBox="0 0 24 24" width="20" height="20" style="display:none"><path fill="currentColor" d="M6 5h4v14H6V5Zm8 0h4v14h-4V5Z"/></svg>
-      </button>
-      <button class="ctrl-btn" id="nextBtn" aria-label="Next song">
-        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16 6h2v12h-2V6Zm-2 6-9 6V6l9 6Z"/></svg>
-      </button>
-    </div>
   </div>
 
-</div>
+  <audio id="audio" preload="metadata"></audio>
 
-<audio id="audio" preload="metadata"></audio>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
